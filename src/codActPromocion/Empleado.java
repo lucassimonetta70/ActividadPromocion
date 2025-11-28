@@ -19,7 +19,7 @@ public class Empleado {
         this.legajo = String.format("%03d", totalEmpleados);
     }
 
-    public Empleado(String nombre, String apellido, int edad, String dni, String legajo) {
+    public Empleado(String nombre, String apellido, int edad, String dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -83,6 +83,24 @@ public class Empleado {
         this.edad = libreria.Ingreso.ingresoEntero("Ingrse la edad del empleado: ", "INGRESO EDAD", JOptionPane.INFORMATION_MESSAGE);
         this.dni = libreria.Ingreso.ingresoString("Ingrse el dni del empleado: ", "INGRESO DNI", JOptionPane.INFORMATION_MESSAGE);
     }
+
+    public String escribirEmpleado() { // Metodo para designar unicamente los valores.
+
+        return  "=== EMPLEADO ===\n"
+                + "Nombre: " + this.nombre + "\n"
+                + "Apellido: " + this.apellido + "\n"
+                + "Edad: " + this.edad + "\n"
+                + "DNI: " + this.dni + "\n"
+                + "Legajo del empleado: " + this.legajo; 
+        
+    }
+
+    public void mostrarEmpleado() {
+        String info = escribirEmpleado();
+        JOptionPane.showMessageDialog(null, info, "DATOS", JOptionPane.INFORMATION_MESSAGE);
+}
+
+    
 
 
 
