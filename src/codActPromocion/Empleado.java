@@ -101,6 +101,9 @@ public class Empleado {
 }
 
     
+public double calcularSueldoFinal() {
+    return 0;   // Por defecto, el sueldo base no existe en Empleado general
+}
 
 
 
