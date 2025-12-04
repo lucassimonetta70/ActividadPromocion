@@ -19,7 +19,7 @@ public class Vachero extends Empleado {
         cantVacheros++;
     }
 
-    public Vachero(String nombre, String apellido, int edad, String dni,double sueldoBase, int antiguedad,
+    public Vachero(String nombre, String apellido, int edad, String dni, int antiguedad,
          int horasExt) {
         super(nombre, apellido, edad, dni);
         this.antiguedad = antiguedad;
@@ -80,14 +80,16 @@ public class Vachero extends Empleado {
     }
 
     @Override
-    public void mostrarEmpleado() {
+    public String toString() {
 
-        String info = super.escribirEmpleado() + // enlaza String con los siguientes.
-                "\nLa antiguedad del vachero es: " + this.antiguedad + "\n"
-                + "La cantidad de horas extras es de: " + this.horasExt + "\n"
+        return super.toString() + // enlaza String con los siguientes.
+                " | La antiguedad del vachero es: " + this.antiguedad + 
+                " | La cantidad de horas extras es de: " + this.horasExt + "\n"
                 + "El sueldo final a cobrar es: " + calcularSueldoFinal();
+    }
 
-        JOptionPane.showMessageDialog(null, info, "DATOS", JOptionPane.INFORMATION_MESSAGE);
+    public void mostrarVachero() { 
+        JOptionPane.showMessageDialog(null, this.toString(), "DATOS", JOptionPane.INFORMATION_MESSAGE); 
     }
 
 }

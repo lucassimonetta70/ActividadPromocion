@@ -84,19 +84,22 @@ public class Empleado {
         this.dni = libreria.Ingreso.ingresoString("Ingrse el dni del empleado: ", "INGRESO DNI", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public String escribirEmpleado() { // Metodo para designar unicamente los valores.
+    @Override
+    public String toString() { // Metodo para designar unicamente los valores.
 
-        return  "=== EMPLEADO ===\n"
-                + "Nombre: " + this.nombre + "\n"
-                + "Apellido: " + this.apellido + "\n"
-                + "Edad: " + this.edad + "\n"
-                + "DNI: " + this.dni + "\n"
-                + "Legajo del empleado: " + this.legajo; 
+        return  "===================\n" +
+                "      EMPLEADO     \n" +
+                "===================\n" 
+                + "Nombre: " + this.nombre + 
+                  " | Apellido: " + this.apellido + 
+                  " | Edad: " + this.edad + 
+                  " | DNI: " + this.dni + 
+                  "\nLegajo del empleado: " + this.legajo; 
         
     }
 
     public void mostrarEmpleado() {
-        String info = escribirEmpleado();
+        String info = toString();
         JOptionPane.showMessageDialog(null, info, "DATOS", JOptionPane.INFORMATION_MESSAGE);
 }
 

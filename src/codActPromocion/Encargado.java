@@ -18,10 +18,11 @@ public class Encargado extends Empleado {
         cantEncargado++;
     }
 
-    public Encargado(String nombre, String apellido, int edad, String dni, int antiguedad, int horasExt) {
+    public Encargado(String nombre, String apellido, int edad, String dni, int antiguedad, int horasExt, String tipo) {
         super(nombre, apellido, edad, dni);
         this.antiguedad = antiguedad;
         this.horasExt = horasExt;
+        cantEncargado++;
     }
 
     /* GETTERS */
@@ -74,15 +75,19 @@ public class Encargado extends Empleado {
     }
 
     @Override
-    public void mostrarEmpleado() {
+    public String toString() {
 
-        String info = super.escribirEmpleado() + // enlaza String con los siguientes.
-                "\nLa antiguedad del encargado es: " + this.antiguedad + "\n"
-                + "La cantidad de horas extras es de: " + this.horasExt + "\n"
+        return super.toString() + // enlaza String con los siguientes.
+                " | La antiguedad del encargado es: " + this.antiguedad + 
+                " | La cantidad de horas extras es de: " + this.horasExt + "\n"
                 + "El sueldo final a cobrar es: " + calcularSueldoFinal();
-
-        JOptionPane.showMessageDialog(null, info, "DATOS", JOptionPane.INFORMATION_MESSAGE);
     }
+
+    public void mostrarEncargado() { 
+        JOptionPane.showMessageDialog(null, this.toString(), "DATOS", JOptionPane.INFORMATION_MESSAGE); 
+    }
+
+    
 
     
 

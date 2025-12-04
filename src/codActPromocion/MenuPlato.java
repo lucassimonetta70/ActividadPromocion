@@ -4,20 +4,28 @@ import javax.swing.JOptionPane;
 
 public class MenuPlato {
 
+    private static int cantPlatos = 0; //Contador
+
     private String nombre;
     private double precio;
     private boolean disponible;
 
-    public MenuPlato() {
+    public MenuPlato(){
+        cantPlatos++;
     }
 
     public MenuPlato(String nombre, double precio, boolean disponible) {
         this.nombre = nombre;
         this.precio = precio;
         this.disponible = disponible;
+        cantPlatos++;
     }
 
     /* GETTERS */
+    public static int getCantPlatos() {
+        return cantPlatos;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -47,56 +55,40 @@ public class MenuPlato {
     public void cargarMenuPlato() {
 
         this.nombre = libreria.Ingreso.ingresoString(
-            "Ingrese el nombre del plato:",
-            "NOMBRE DE PLATO", JOptionPane.INFORMATION_MESSAGE
+                "Ingrese el nombre del plato:",
+                "NOMBRE PLATO",
+                JOptionPane.INFORMATION_MESSAGE
         );
 
-        while (true) {
-            String precioStr = libreria.Ingreso.ingresoString(
-                "Ingrese el precio del plato (ej: 1500.50):",
-                "PRECIO DEL PLATO", JOptionPane.INFORMATION_MESSAGE
-            );
-
-            if (precioStr == null) {        // Si cancela
-                this.precio = 0.0;
-                break;
-            }
-
-            precioStr = precioStr.replace(',', '.').trim();
-
-            try {
-                this.precio = Double.parseDouble(precioStr);
-                break;
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    null,
-                    "ERROR: Ingrese un número válido.\nEjemplo: 1500.50",
-                    "PRECIO INVÁLIDO",
-                    JOptionPane.ERROR_MESSAGE
-                );
-            }
-        }
-
-        int opc = libreria.Ingreso.ingresoEntero(
-            "¿El plato está disponible?\n1 = SI   |   2 = NO",
-            "DISPONIBILIDAD", JOptionPane.INFORMATION_MESSAGE
+        this.precio = libreria.Ingreso.ingresoDoble(
+                "Ingrese el precio del plato:",
+                "PRECIO PLATO",
+                JOptionPane.INFORMATION_MESSAGE
         );
+
+
+        int opc;
+
+        do {
+            opc = libreria.Ingreso.ingresoEntero(
+                    "¿El plato está disponible?\n1 = SI   |   2 = NO",
+                    "DISPONIBILIDAD", JOptionPane.INFORMATION_MESSAGE);
+
+        } while (opc != 1 && opc != 2);
 
         this.disponible = (opc == 1);
     }
 
     @Override
     public String toString() {
-        return "Menú: " + nombre +
-               " | Precio: $" + precio +
-               " | Disponible: " + (disponible ? "Sí" : "No");
+        return "---- PLATO ----\n" +
+                " | Menú: " + nombre + 
+                " | Precio: $" + precio + 
+                " | Disponible: " + (disponible ? "Sí" : "No");
     }
 
+    public void mostrarPlato() {
+        JOptionPane.showMessageDialog(null, this.toString(), "MENU PLATOS", JOptionPane.INFORMATION_MESSAGE);
+    }
 
-
-
-
-
-
-    
 }
