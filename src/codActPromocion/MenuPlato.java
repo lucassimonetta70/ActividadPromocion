@@ -82,9 +82,9 @@ public class MenuPlato {
     @Override
     public String toString() {
         return "---- PLATO ----\n" +
-                "Menú: " + nombre + "\n" +
-                "Precio: $" + precio + "\n" +
-                "Disponible: " + (disponible ? "Sí" : "No");
+                " | Menú: " + nombre + 
+                " | Precio: $" + precio + 
+                " | Disponible: " + (disponible ? "Sí" : "No");
     }
 
     public void mostrarPlato() {

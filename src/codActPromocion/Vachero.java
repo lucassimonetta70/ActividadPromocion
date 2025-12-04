@@ -83,8 +83,8 @@ public class Vachero extends Empleado {
     public String toString() {
 
         return super.toString() + // enlaza String con los siguientes.
-                "\nLa antiguedad del vachero es: " + this.antiguedad + "\n"
-                + "La cantidad de horas extras es de: " + this.horasExt + "\n"
+                " | La antiguedad del vachero es: " + this.antiguedad + 
+                " | La cantidad de horas extras es de: " + this.horasExt + "\n"
                 + "El sueldo final a cobrar es: " + calcularSueldoFinal();
     }
 

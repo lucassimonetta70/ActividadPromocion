@@ -90,11 +90,11 @@ public class Empleado {
         return  "===================\n" +
                 "      EMPLEADO     \n" +
                 "===================\n" 
-                + "Nombre: " + this.nombre + "\n"
-                + "Apellido: " + this.apellido + "\n"
-                + "Edad: " + this.edad + "\n"
-                + "DNI: " + this.dni + "\n"
-                + "Legajo del empleado: " + this.legajo; 
+                + "Nombre: " + this.nombre + 
+                  " | Apellido: " + this.apellido + 
+                  " | Edad: " + this.edad + 
+                  " | DNI: " + this.dni + 
+                  "\nLegajo del empleado: " + this.legajo; 
         
     }
 

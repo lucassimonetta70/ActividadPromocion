@@ -18,7 +18,7 @@ public class Encargado extends Empleado {
         cantEncargado++;
     }
 
-    public Encargado(String nombre, String apellido, int edad, String dni, int antiguedad, int horasExt) {
+    public Encargado(String nombre, String apellido, int edad, String dni, int antiguedad, int horasExt, String tipo) {
         super(nombre, apellido, edad, dni);
         this.antiguedad = antiguedad;
         this.horasExt = horasExt;
@@ -78,8 +78,8 @@ public class Encargado extends Empleado {
     public String toString() {
 
         return super.toString() + // enlaza String con los siguientes.
-                "\nLa antiguedad del encargado es: " + this.antiguedad + "\n"
-                + "La cantidad de horas extras es de: " + this.horasExt + "\n"
+                " | La antiguedad del encargado es: " + this.antiguedad + 
+                " | La cantidad de horas extras es de: " + this.horasExt + "\n"
                 + "El sueldo final a cobrar es: " + calcularSueldoFinal();
     }
 
