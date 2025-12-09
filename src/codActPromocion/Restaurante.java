@@ -47,6 +47,8 @@ public class Restaurante {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
+
+    
     // =====================================================
     //                  ELIMINAR EMPLEADO
     // =====================================================
@@ -314,6 +316,48 @@ public class Restaurante {
                 "INFORME GENERAL",
                 JOptionPane.INFORMATION_MESSAGE);
     }
+// En Restaurante.java
+public void modificarEmpleadoPorIndice() {
+
+    if (cantEmpleados == 0) {
+        JOptionPane.showMessageDialog(null, "No hay empleados para modificar.", "CUIDADO", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // Construir lista con índices (igual que en eliminarEmpleadoPorIndice)
+    String lista = "=== LISTA DE EMPLEADOS ===\n";
+    for (int i = 0; i < cantEmpleados; i++) {
+        lista += "[" + i + "] " + empleados[i].getNombre()
+                + " - Tipo: " + empleados[i].getClass().getSimpleName()
+                + " - Sueldo: $" + empleados[i].calcularSueldoFinal() + "\n";
+    }
+
+    int indice;
+    do {
+        String mensaje = lista + "\nIngrese el índice del empleado a modificar:";
+        indice = libreria.Ingreso.ingresoEntero(mensaje, "MODIFICAR EMPLEADO", JOptionPane.INFORMATION_MESSAGE);
+
+        if (indice < 0 || indice >= cantEmpleados) {
+            JOptionPane.showMessageDialog(null, "Índice inválido, no existe ese empleado.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    } while (indice < 0 || indice >= cantEmpleados);
+
+    Empleado e = empleados[indice];
+
+    // Identificamos tipo y llamamos al método específico
+    if (e instanceof Mozo) {
+        ((Mozo) e).modificarDatosMozo();
+    } else if (e instanceof Encargado) {
+        ((Encargado) e).modificarDatosEncargado();
+    } else if (e instanceof Vachero) {
+        ((Vachero) e).modificarDatosVachero();
+    } else {
+        // por si hay otros tipos futuros
+        e.modificarDatosBasicos();
+    }
+
+    JOptionPane.showMessageDialog(null, "Datos modificados correctamente.", "MODIFICACIÓN EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+}
 
     // =====================================================
     //          METODO PARA ELIMINAR EMPLEADO
@@ -471,14 +515,14 @@ public class Restaurante {
             mostrarInformacion();
             break;
 
-        /* SALIR */
         case 11:
-            JOptionPane.showMessageDialog(null, "Saliendo del menu....", "SALIENDO",
-                    JOptionPane.WARNING_MESSAGE);
-            break;
+            modificarEmpleadoPorIndice();   // <-- LLAMA AL MÉTODO QUE AGREGAMOS
+             break;
 
-        default:
-            JOptionPane.showMessageDialog(null, "OPCION ELEJIDA INVALIDA", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+        case 12:
+            JOptionPane.showMessageDialog(null, "Saliendo del menu....", "SALIENDO", JOptionPane.WARNING_MESSAGE);
+            break;
     }
 
 } while (opc != 12);

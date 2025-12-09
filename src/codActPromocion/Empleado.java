@@ -109,6 +109,32 @@ public double calcularSueldoFinal() {
 }
 
 
+public void modificarDatosBasicos() {
+    String nuevoNombre = libreria.Ingreso.ingresoString(
+        "Modificar nombre (actual: " + this.getNombre() + "):",
+        "MODIFICAR NOMBRE",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setNombre(nuevoNombre);
+
+    String nuevoApellido = libreria.Ingreso.ingresoString(
+        "Modificar apellido (actual: " + this.getApellido() + "):",
+        "MODIFICAR APELLIDO",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setApellido(nuevoApellido);
+
+    int nuevaEdad = libreria.Ingreso.ingresoEntero(
+        "Modificar edad (actual: " + this.getEdad() + "):",
+        "MODIFICAR EDAD",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setEdad(nuevaEdad);
+
+    String nuevoDni = libreria.Ingreso.ingresoString(
+        "Modificar DNI (actual: " + this.getDni() + "):",
+        "MODIFICAR DNI",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setDni(nuevoDni);
+}
+
 
 
 

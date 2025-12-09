@@ -89,7 +89,22 @@ public class Encargado extends Empleado {
 
     
 
-    
+    public void modificarDatosEncargado() {
+    this.modificarDatosBasicos();
+
+    int nuevaAnt = libreria.Ingreso.ingresoEntero(
+        "Modificar antigüedad del encargado (" + this.antiguedad + "): ",
+        "MODIFICAR ANTIGÜEDAD",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setAntiguedad(nuevaAnt);
+
+    int nuevasHoras = libreria.Ingreso.ingresoEntero(
+        "Modificar horas extras (" + this.horasExt + "): ",
+        "MODIFICAR HORAS EXTRAS",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setHorasExt(nuevasHoras);
+}
+
 
     
 
