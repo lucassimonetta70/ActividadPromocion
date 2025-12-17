@@ -85,4 +85,21 @@ public class Mozo extends Empleado {
         JOptionPane.showMessageDialog(null, this.toString(), "DATOS", JOptionPane.INFORMATION_MESSAGE); 
     }
 
+public void modificarDatosMozo() {
+    // modifica datos básicos heredados
+    this.modificarDatosBasicos();
+
+    int nuevaAnt = libreria.Ingreso.ingresoEntero(
+        "Modificar antigüedad del mozo (actual: " + this.getAntiguedad() + "):",
+        "MODIFICAR ANTIGUEDAD",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setAntiguedad(nuevaAnt);
+
+    int nuevasHoras = libreria.Ingreso.ingresoEntero(
+        "Modificar horas extras (actual: " + this.getHorasExt() + "):",
+        "MODIFICAR HORAS EXTRAS",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setHorasExt(nuevasHoras);
+}
+
 }

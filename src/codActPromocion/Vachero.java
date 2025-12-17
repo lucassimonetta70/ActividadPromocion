@@ -92,4 +92,21 @@ public class Vachero extends Empleado {
         JOptionPane.showMessageDialog(null, this.toString(), "DATOS", JOptionPane.INFORMATION_MESSAGE); 
     }
 
+public void modificarDatosVachero() {
+    this.modificarDatosBasicos();
+
+    int nuevaAnt = libreria.Ingreso.ingresoEntero(
+        "Modificar antigüedad del vachero (actual: " + this.getAntiguedad() + "):",
+        "MODIFICAR ANTIGUEDAD",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setAntiguedad(nuevaAnt);
+
+    int nuevasHoras = libreria.Ingreso.ingresoEntero(
+        "Modificar horas extras (actual: " + this.getHorasExt() + "):",
+        "MODIFICAR HORAS EXTRAS",
+        JOptionPane.INFORMATION_MESSAGE);
+    this.setHorasExt(nuevasHoras);
+}
+
+
 }
